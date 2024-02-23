@@ -37,4 +37,8 @@ public class Image {
 
     @Enumerated(EnumType.STRING)
     private ImageExtension extension;
+
+    public String getFileName(){
+        return getName().concat(".").concat(getExtension().name());
+    }
 }
