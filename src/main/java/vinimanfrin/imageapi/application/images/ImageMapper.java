@@ -23,4 +23,8 @@ public class ImageMapper {
 
         return image;
     }
+
+    public static ImageDTO imageToDto(Image image, String url){
+        return new ImageDTO(url,image.getName(),image.getExtension().name(), image.getSize(), image.getUploadDate().toLocalDate());
+    }
 }

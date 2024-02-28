@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import vinimanfrin.imageapi.domain.entity.Image;
+import vinimanfrin.imageapi.domain.enums.ImageExtension;
+
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/image")
@@ -49,6 +52,20 @@ public class ImageController {
         headers.setContentDispositionFormData("inline; filename=\"" + image.getFileName() + "\"",image.getFileName());
 
         return new ResponseEntity<>(image.getFile(),headers, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ImageDTO>> search(
+            @RequestParam(value = "extension", required = false) String extension,
+            @RequestParam(value = "query", required = false) String query){
+
+        var result = imageService.search(ImageExtension.valueOf(extension), query);
+        var images = result.stream().map(image -> {
+            var url = buildImageURL(image);
+            return ImageMapper.imageToDto(image, url.toString());
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(images);
     }
 
     private URI buildImageURL(Image image){
