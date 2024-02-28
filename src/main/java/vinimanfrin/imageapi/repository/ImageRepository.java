@@ -47,7 +47,7 @@ public interface ImageRepository extends JpaRepository<Image,String>, JpaSpecifi
             Specification<Image> nameOrTagsLike = Specification.anyOf(nameLike,tagsLike);
 
             // Adiciona a especificação de nome ou tags semelhantes à especificação principal
-            spec.and(nameOrTagsLike);
+            spec = spec.and(nameOrTagsLike);
         }
 
         // Retorna a lista de imagens correspondentes aos critérios de pesquisa fornecidos

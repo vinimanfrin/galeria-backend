@@ -6,14 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import vinimanfrin.imageapi.domain.enums.ImageExtension;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "imagens")
-@EntityListeners(AuditingEntityListener.class)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,8 +26,6 @@ public class Image {
     private String name;
     private Long size;
     private String tags;
-
-    @CreatedDate
     private LocalDateTime uploadDate;
 
     @Lob

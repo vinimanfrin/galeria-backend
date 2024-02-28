@@ -7,6 +7,7 @@ import vinimanfrin.imageapi.domain.entity.Image;
 import vinimanfrin.imageapi.domain.enums.ImageExtension;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -16,6 +17,7 @@ public class ImageMapper {
         Image image = Image.builder()
                 .name(name)
                 .tags(String.join(",",tags))
+                .uploadDate(LocalDateTime.now())
                 .size(file.getSize())
                 .extension(ImageExtension.valueoOf(MediaType.valueOf(file.getContentType())))
                 .file(file.getBytes())
