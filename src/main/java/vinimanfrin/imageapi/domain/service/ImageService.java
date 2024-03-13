@@ -2,7 +2,6 @@ package vinimanfrin.imageapi.domain.service;
 
 import vinimanfrin.imageapi.domain.entity.Image;
 import vinimanfrin.imageapi.domain.enums.ImageExtension;
-
 import java.util.List;
 import java.util.Optional;
 

@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
 import vinimanfrin.imageapi.domain.enums.ImageExtension;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,7 +19,6 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-
 
     private String name;
     private Long size;

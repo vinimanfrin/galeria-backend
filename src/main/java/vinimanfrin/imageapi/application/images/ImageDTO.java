@@ -1,7 +1,7 @@
 package vinimanfrin.imageapi.application.images;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import vinimanfrin.imageapi.domain.entity.Image;
-
 import java.time.LocalDate;
 
 public record ImageDTO(
@@ -9,6 +9,8 @@ public record ImageDTO(
         String name,
         String extension,
         Long size,
+
+        @JsonFormat(pattern = "dd/MM/yyyy")
         LocalDate uploadDate
 ) {
 

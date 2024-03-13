@@ -8,7 +8,6 @@ import vinimanfrin.imageapi.domain.entity.Image;
 import vinimanfrin.imageapi.domain.enums.ImageExtension;
 import vinimanfrin.imageapi.domain.service.ImageService;
 import vinimanfrin.imageapi.repository.ImageRepository;
-
 import java.util.List;
 import java.util.Optional;
 
